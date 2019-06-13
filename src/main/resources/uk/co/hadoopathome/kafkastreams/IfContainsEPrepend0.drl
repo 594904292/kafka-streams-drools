@@ -1,0 +1,17 @@
+package uk.co.hadoopathome.kafkastreams;
+
+import uk.co.hadoopathome.kafkastreams.drools.Message;
+
+rule "If Contains E Prepend idss"
+when
+    message:Message (content contains 'e') or message:Message (content contains 'E')
+then
+    message.setContent("idss>>>"+message.getContent());
+end
+
+rule "If Contains W Prepend china"
+when
+    message:Message (content contains 'w') or message:Message (content contains 'W')
+then
+    message.setContent("china>>>"+message.getContent());
+end
